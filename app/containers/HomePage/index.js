@@ -52,6 +52,10 @@ export class HomePage extends React.Component {
     this.openRoute('/features');
   };
 
+  openCostPage = () => {
+    this.openRoute('/costs');
+  };
+
   render() {
     let mainContent = null;
 
@@ -96,6 +100,7 @@ export class HomePage extends React.Component {
             {mainContent}
           </section>
           <Button handleRoute={this.openFeaturesPage}>Features</Button>
+          <Button handleRoute={this.openCostPage}>Costs</Button>
         </div>
       </article>
     );

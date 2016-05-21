@@ -47,6 +47,25 @@ export default function createRoutes(store) {
           .catch(errorLoading);
       },
     }, {
+      path: '/costs',
+      name: 'costs',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/CostPage/reducer'),
+          System.import('containers/CostPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, component]) => {
+          injectReducer('cost', reducer.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

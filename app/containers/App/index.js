@@ -15,15 +15,23 @@ import Img from 'components/Img';
 import Footer from 'components/Footer';
 import Banner from './banner-metal.jpg';
 import A from 'components/A';
+import H1 from 'components/H1';
 
 import styles from './styles.css';
 
 function App(props) {
+  // return (
+  //   <div className={styles.wrapper}>
+  //     <A className={styles.logoWrapper} href="https://twitter.com/mxstbr">
+  //       <Img className={styles.logo} src={Banner} alt="react-boilerplate - Logo" />
+  //     </A>
+  //     {props.children}
+  //     <Footer />
+  //   </div>
+  // );
   return (
     <div className={styles.wrapper}>
-      <A className={styles.logoWrapper} href="https://twitter.com/mxstbr">
-        <Img className={styles.logo} src={Banner} alt="react-boilerplate - Logo" />
-      </A>
+      <H1>Cloud Cost</H1>
       {props.children}
       <Footer />
     </div>
