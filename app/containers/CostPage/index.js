@@ -48,6 +48,11 @@ export class CostPage extends React.Component {
     return (
       <div>
         <H1>Costs</H1>
+
+        <table>
+          <tr><th>Name</th><th>CPU</th><th>Memory</th><th>Storage</th><th>Cost Per/Hour</th></tr>
+          <tr><td>Name</td><td>CPU</td><td>Memory</td><td>Storage</td><td>Cost Per/Hour</td></tr>
+        </table>
         <ul className={styles.list}>
           <li className={styles.listItem}>
             <p className={styles.listItemTitle}>Testing:</p>
