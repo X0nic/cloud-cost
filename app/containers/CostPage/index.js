@@ -45,6 +45,13 @@ export class CostPage extends React.Component {
   };
 
   render() {
+    console.log(this.props.aws.toArray());
+    // this.props.aws.forEach( (aws) => {
+    //   console.log(aws);
+    //   aws.map( (row)=> {
+    //     console.log(row);
+    //   } )
+    // });
     return (
       <div>
         <H1>Costs</H1>
@@ -70,37 +77,6 @@ export class CostPage extends React.Component {
             you update something in the underlying code!</p>
           </li>
 
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>Predictable state management</p>
-            <p>Unidirectional data flow allows for change logging and time travel
-            debugging.</p>
-          </li>
-
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>Next generation JavaScript</p>
-            <p>Use template strings, object destructuring, arrow functions, JSX
-            syntax and more, today.</p>
-          </li>
-
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>Next generation CSS</p>
-            <p>Write composable CSS that's co-located with your components for
-            complete modularity. Unique generated class names keep the
-            specificity low while eliminating style clashes. Ship only the
-            styles that are on the page for the best performance.</p>
-          </li>
-
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>Industry-standard routing</p>
-            <p>It's natural to want to add pages (e.g. `/about`) to your
-            application, and routing makes this possible.</p>
-          </li>
-
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>Offline-first</p>
-            <p>The next frontier in performant web apps: availability without a
-            network connection from the instant your users load the app.</p>
-          </li>
         </ul>
         <Button handleRoute={this.openHomePage}>Home</Button>
       </div>
@@ -108,7 +84,7 @@ export class CostPage extends React.Component {
   }
 }
 CostPage.propTypes = {
-  aws: React.PropTypes.string,
+  // aws: React.PropTypes.string,
 };
 
 function mapDispatchToProps(dispatch) {
