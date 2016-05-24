@@ -66,15 +66,7 @@ export class CostPage extends React.Component {
             <p>1{this.props.testing}</p>
             <p>2{this.props.username}</p>
             <p>3{this.props.cost}</p>
-            <p>4{this.props.aws}</p>
-          </li>
-
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>Instant feedback</p>
-            <p>Enjoy the best DX and code your app at the speed of thought! Your
-            saved changes to the CSS and JS are reflected instantaneously
-            without refreshing the page. Preserve application state even when
-            you update something in the underlying code!</p>
+            <p>3{this.props.aws}</p>
           </li>
 
         </ul>
