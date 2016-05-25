@@ -1,5 +1,5 @@
-const aws_prices = {
-  "UNB4R4KS4XXHQFD2" : {
+const aws_prices = [
+   {
     "sku" : "UNB4R4KS4XXHQFD2",
     "productFamily" : "Compute Instance",
     "attributes" : {
@@ -27,7 +27,7 @@ const aws_prices = {
       "processorFeatures" : "Intel AVX; Intel AVX2; Intel Turbo"
     }
   },
-  "Q2VGNGRJSQ89RDB7" : {
+  {
     "sku" : "Q2VGNGRJSQ89RDB7",
     "productFamily" : "Compute Instance",
     "attributes" : {
@@ -54,6 +54,6 @@ const aws_prices = {
       "processorFeatures" : "Intel AVX; Intel Turbo"
     }
   }
-}
+]
 
 export default aws_prices;

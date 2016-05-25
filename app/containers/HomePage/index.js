@@ -75,6 +75,7 @@ export class HomePage extends React.Component {
       mainContent = (<List items={this.props.repos} component={RepoListItem} />);
     }
 
+    console.log(this.props);
     return (
       <article>
         <div>

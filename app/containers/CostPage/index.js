@@ -18,11 +18,12 @@ import {
 } from 'containers/App/selectors';
 
 import {
-  selectAws,
+  selectAwsPrice,
 } from './selectors';
 
 import Button from 'components/Button';
 import H1 from 'components/H1';
+import Table from 'components/Table';
 
 import styles from './styles.css';
 
@@ -45,7 +46,8 @@ export class CostPage extends React.Component {
   };
 
   render() {
-    console.log(this.props.aws.toArray());
+    // console.log(this.props.aws.toArray());
+    // console.log(this.props);
     // this.props.aws.forEach( (aws) => {
     //   console.log(aws);
     //   aws.map( (row)=> {
@@ -56,17 +58,10 @@ export class CostPage extends React.Component {
       <div>
         <H1>Costs</H1>
 
-        <table>
-          <tr><th>Name</th><th>CPU</th><th>Memory</th><th>Storage</th><th>Cost Per/Hour</th></tr>
-          <tr><td>Name</td><td>CPU</td><td>Memory</td><td>Storage</td><td>Cost Per/Hour</td></tr>
-        </table>
+        <Table items={this.props.aws_price} />
         <ul className={styles.list}>
           <li className={styles.listItem}>
             <p className={styles.listItemTitle}>Testing:</p>
-            <p>1{this.props.testing}</p>
-            <p>2{this.props.username}</p>
-            <p>3{this.props.cost}</p>
-            <p>3{this.props.aws}</p>
           </li>
 
         </ul>
@@ -76,7 +71,7 @@ export class CostPage extends React.Component {
   }
 }
 CostPage.propTypes = {
-  // aws: React.PropTypes.string,
+  aws_price: React.PropTypes.array,
 };
 
 function mapDispatchToProps(dispatch) {
@@ -87,6 +82,13 @@ function mapDispatchToProps(dispatch) {
 
 // Wrap the component to inject dispatch and state into it
 export default connect(createSelector(
-  selectAws(),
-  (aws) => ({ aws })
+  selectAwsPrice(),
+  (aws_price) => ({ aws_price })
 ), mapDispatchToProps)(CostPage);
+// export default connect(createSelector(
+//   selectRepos(),
+//   selectLoading(),
+//   selectError(),
+//   selectAwsPrice(),
+//   (repos, loading, error, aws_price) => ({ repos, loading, error, aws_price })
+// ), mapDispatchToProps)(CostPage);

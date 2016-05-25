@@ -10,16 +10,14 @@
  *   return state.set('yourStateVariable', true);
  */
 
-import {
-  CHANGE_USERNAME,
-} from './constants';
 import { fromJS } from 'immutable';
 
 import pricing from './data/aws';
 
 // The initial state of the App
+  // aws: pricing,
 const initialState = fromJS({
-  aws: pricing
+  aws_price: pricing,
 });
 
 function costReducer(state = initialState, action) {
