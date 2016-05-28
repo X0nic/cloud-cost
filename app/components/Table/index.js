@@ -1,9 +1,15 @@
 import React from 'react';
+import { fromJS } from 'immutable';
 
 import styles from './styles.css';
 
+import TableRow from 'components/TableRow';
+
 function Table(props) {
-  let content = (<div></div>);
+  let content;
+
+  let headers = fromJS(['Name', 'CPU', 'Memory', 'Storage', 'Cost Per/Hour']);
+  let rows = fromJS(['instanceType', 'vcpu', 'memory', 'storage']);
 
   // console.log('-------');
   // console.log(props.items);
@@ -15,18 +21,20 @@ function Table(props) {
   // console.log('-------');
 
   // const rows = (<td></td>);
-  const rows = props.items.map((item, index) => (
-    <tr key={`item-${index}`}><td item={item}>{item.get('sku')}</td></tr>
+  const rowContent = props.items.map((row, index) => {
+    let attrs = row.get('attributes');
+    return (<TableRow key={`row-${index}`} headers={rows} items={attrs} />)
+  });
+
+  const headerContent = headers.map((item, index) => (
+    <th>{item}</th>
   ));
 
-  // console.log(rows.toArray());
-
-  // <tr><td>Name</td><td>CPU</td><td>Memory</td><td>Storage</td><td>Cost Per/Hour</td></tr>
   if (props.items) {
     content = (
       <table><tbody>
-        <tr><th>Name</th><th>CPU</th><th>Memory</th><th>Storage</th><th>Cost Per/Hour</th></tr>
-        {rows}
+        <tr>{headerContent}</tr>
+        {rowContent}
       </tbody></table>
     );
   } else {
