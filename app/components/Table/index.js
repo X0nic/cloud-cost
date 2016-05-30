@@ -8,11 +8,8 @@ import TableRow from 'components/TableRow';
 function Table(props) {
   let content;
 
-  let headers = fromJS(['Name', 'CPU', 'Memory', 'Storage', 'Cost Per/Hour']);
-  let rows = fromJS(['instanceType', 'vcpu', 'memory', 'storage']);
-
   // console.log('-------');
-  // console.log(props.items);
+  // console.log(props.headers.toJS());
   // console.log(props.items.toJS());
   // props.items.forEach( (item, index) => {
   //   console.log(item);
@@ -23,10 +20,10 @@ function Table(props) {
   // const rows = (<td></td>);
   const rowContent = props.items.map((row, index) => {
     let attrs = row.get('attributes');
-    return (<TableRow key={`row-${index}`} headers={rows} items={attrs} />)
+    return (<TableRow key={`row-${index}`} headers={props.headers} items={props.items} />)
   });
 
-  const headerContent = headers.map((item, index) => (
+  const headerContent = props.headers.map((item, index) => (
     <th>{item}</th>
   ));
 

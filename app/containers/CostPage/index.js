@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
 import { createSelector } from 'reselect';
+import { fromJS } from 'immutable';
 
 import {
   selectRepos,
@@ -46,6 +47,15 @@ export class CostPage extends React.Component {
   };
 
   render() {
+    let headers = fromJS(['Name', 'CPU', 'Memory', 'Storage', 'Cost Per/Hour']);
+
+    let rows = fromJS(['instanceType', 'vcpu', 'memory', 'storage']);
+
+    const rowData = this.props.aws_price.map((row, index) => {
+      let attrs = row.get('attributes');
+      return rows.map( (value) => attrs.get(value) );
+    });
+
     // console.log(this.props.aws.toArray());
     // console.log(this.props);
     // this.props.aws.forEach( (aws) => {
@@ -58,7 +68,7 @@ export class CostPage extends React.Component {
       <div>
         <H1>Costs</H1>
 
-        <Table items={this.props.aws_price} />
+        <Table items={rowData} headers={headers} />
         <ul className={styles.list}>
           <li className={styles.listItem}>
             <p className={styles.listItemTitle}>Testing:</p>

@@ -7,8 +7,8 @@ function TableRow(props) {
   let content;
 
   if (props.items) {
-    content = props.headers.map((item, index) => (
-        <td key={`item-${index}`}>{props.items.get(item)}</td>
+    content = props.items.map((item, index) => (
+        <td key={`item-${index}`}>{item}</td>
     ));
   } else {
     content = (<td>Nothing to render</td>);
