@@ -7,9 +7,6 @@ function TableRow(props) {
   let content;
 
   if (props.items) {
-    // console.log(props.items.toJS()[1]);
-    // prop.items[0].map( (item) => ( <td key={`item-${index}`}>{item}</td> )) ;
-    console.log(props.items.toJS()[0]);
     content = props.items.map((item, index) => (
         <td key={`item-${index}`}>{item}</td>
     ));

@@ -20,7 +20,7 @@ function Table(props) {
   // const rows = (<td></td>);
   const rowContent = props.items.map((row, index) => {
     let attrs = row.get('attributes');
-    return (<TableRow key={`row-${index}`} headers={props.headers} items={props.items} />)
+    return (<TableRow key={`row-${index}`} headers={props.headers} items={row} />)
   });
 
   const headerContent = props.headers.map((item, index) => (
