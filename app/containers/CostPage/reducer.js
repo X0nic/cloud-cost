@@ -14,8 +14,6 @@ import { fromJS } from 'immutable';
 
 import pricing from './data/aws';
 
-// The initial state of the App
-  // aws: pricing,
 const initialState = fromJS({
   aws_price: pricing,
 });
@@ -23,7 +21,6 @@ const initialState = fromJS({
 function costReducer(state = initialState, action) {
   switch (action.type) {
     default:
-      // console.log(state);
       return state;
   }
 }
